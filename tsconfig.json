@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "esModuleInterop": true,
     "target": "es2018",
     "noImplicitAny": true,
@@ -11,8 +10,10 @@
     "outDir": "build",
     "baseUrl": ".",
     "paths": {
-      "*": ["node_modules/*"]
-    }
+      "@/*": ["./src/*"]
+    },
+    "module": "commonjs"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["build", "node_modules"]
 }

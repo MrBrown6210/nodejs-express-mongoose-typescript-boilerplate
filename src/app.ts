@@ -2,6 +2,8 @@ import express from 'express'
 
 const app = express()
 
-console.error('xx')
+app.get('/', (req, res) => {
+  res.send('wow')
+})
 
 export default app
