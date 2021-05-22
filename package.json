@@ -4,6 +4,7 @@
   "description": "The nodejs boilerplate",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "keywords": [
