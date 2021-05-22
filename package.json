@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-express-mongoose-typescript-boilerplate",
+  "version": "0.0.0",
+  "description": "The nodejs boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongoose",
+    "typescript",
+    "boilerplate"
+  ],
+  "author": "MrBrown6210",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.2.4"
+  }
+}
