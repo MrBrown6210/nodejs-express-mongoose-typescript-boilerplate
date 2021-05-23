@@ -7,17 +7,14 @@ import httpStatus from 'http-status'
 const router = express.Router()
 
 router.get('/', async (req, res, next) => {
-  try {
-    const store = await Store.find()
-    res.json(store)
-  } catch (e) {
-    next(e)
-  }
+  const store = await Store.find()
+  res.json(store)
 })
 
 router.get('/:id', async (req, res, next) => {
   try {
     const store = await Store.findOne({ _id: req.params.id })
+    if (!store) throw new ApiError(httpStatus.NOT_FOUND, 'Store not found')
     res.json(store)
   } catch (e) {
     next(e)
@@ -36,8 +33,9 @@ router.post('/', async (req, res, next) => {
 
 router.patch('/:id', async (req, res, next) => {
   try {
-    const { name, description, image } = req.body
     const store = await Store.findOne({ _id: req.params.id })
+    if (!store) throw new ApiError(httpStatus.NOT_FOUND, 'Store not found')
+    const { name, description, image } = req.body.store
     if (name) {
       store.name = name
     }
@@ -56,8 +54,10 @@ router.patch('/:id', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    const result = await Store.findOneAndDelete({ _id: req.params.id })
-    res.json(result)
+    const store = await Store.findOne({ _id: req.params.id })
+    if (!store) throw new ApiError(httpStatus.NOT_FOUND, 'Store not found')
+    await store.delete()
+    res.status(httpStatus.NO_CONTENT).send()
   } catch (e) {
     next(e)
   }

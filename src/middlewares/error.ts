@@ -2,8 +2,7 @@
 import ApiError from '@/utils/ApiError'
 import mongoose from 'mongoose'
 import httpStatus from 'http-status'
-import { NextFunction, RequestHandler, Response } from 'express'
-import { IS_PRODUCTION } from '@/config/config'
+import { IS_PRODUCTION, IS_TEST } from '@/config/config'
 import logger from '@/config/logger'
 
 export const errorConverter = (err: any, req: any, res: any, next: any) => {
@@ -32,7 +31,7 @@ export const errorHandler = (err: any, req: any, res: any, next: any) => {
     ...(!IS_PRODUCTION && { stack: err.stack }),
   }
 
-  if (!IS_PRODUCTION) {
+  if (!IS_PRODUCTION && !IS_TEST) {
     logger.error(err)
   }
 
