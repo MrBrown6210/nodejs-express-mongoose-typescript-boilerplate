@@ -1,5 +1,8 @@
+import logger from '@/config/logger'
 import { Store } from '@/models/store.model'
+import ApiError from '@/utils/ApiError'
 import express from 'express'
+import httpStatus from 'http-status'
 
 const router = express.Router()
 
@@ -23,7 +26,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const store = new Store(req.body)
+    const store = new Store(req.body.store)
     await store.save()
     res.json(store)
   } catch (e) {
@@ -31,7 +34,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.put('/:id', async (req, res, next) => {
+router.patch('/:id', async (req, res, next) => {
   try {
     const { name, description, image } = req.body
     const store = await Store.findOne({ _id: req.params.id })
