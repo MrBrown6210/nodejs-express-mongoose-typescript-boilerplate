@@ -1,3 +1,13 @@
+/**
+ * @openapi
+ * /:
+ *   get:
+ *     description: Welcome to swagger-jsdoc!
+ *     responses:
+ *       200:
+ *         description: Returns a mysterious string.
+ */
+
 import logger from '@/config/logger'
 import { Store } from '@/models/store.model'
 import { User } from '@/models/user.model'

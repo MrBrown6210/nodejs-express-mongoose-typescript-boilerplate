@@ -7,7 +7,7 @@ import passport from 'passport'
 
 const router = express.Router()
 
-router.get('/', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   const store = await Store.find()
   res.json(store)
 })

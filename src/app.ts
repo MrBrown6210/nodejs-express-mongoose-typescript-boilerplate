@@ -11,7 +11,9 @@ import httpStatus from 'http-status'
 import ApiError from './utils/ApiError'
 import { errorConverter, errorHandler } from './middlewares/error'
 import passport from 'passport'
-import { jwtStrategy } from '@/utils/passport'
+import { jwtStrategy } from '@/config/passport'
+import swaggerUi from 'swagger-ui-express'
+import { specs } from './config/swagger'
 
 const app = express()
 
@@ -44,6 +46,14 @@ app.use(cors())
 app.get('/', (_req, res) => {
   res.send('Healthy')
 })
+
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(specs, {
+    explorer: true,
+  }),
+)
 
 app.use(APP_PREFIX_PATH, routes)
 
