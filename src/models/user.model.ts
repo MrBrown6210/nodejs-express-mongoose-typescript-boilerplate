@@ -3,6 +3,7 @@ import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
 import { JWT_SECRET } from '@/config/config'
 import uniqueValidator from 'mongoose-unique-validator'
+import privateValidator from 'mongoose-private'
 
 export interface IUser {
   first_name: string
@@ -12,7 +13,7 @@ export interface IUser {
   salt: string
 }
 
-export interface IUserTOJSON {
+export interface IUserToAuthJSON {
   first_name: string
   last_name: string
   name: string
@@ -22,7 +23,7 @@ export interface IUserTOJSON {
 export default interface IUserModel extends Document, IUser {
   setPassword(password: string): void
   validPassword(password: string): boolean
-  toAuthJSON(): IUserTOJSON
+  toAuthJSON(): IUserToAuthJSON
   generateJWT(): string
   generateAccessJWT(): string
   name: string
@@ -46,9 +47,11 @@ const schema = new Schema<IUserModel>(
     },
     hash_password: {
       type: String,
+      private: true,
     },
     salt: {
       type: String,
+      private: true,
     },
   },
   {
@@ -58,6 +61,7 @@ const schema = new Schema<IUserModel>(
 
 // Plugins
 schema.plugin(uniqueValidator)
+schema.plugin(privateValidator)
 
 schema.virtual('name').get(function (this: IUserModel) {
   return `${this.first_name} ${this.last_name}`

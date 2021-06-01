@@ -1,1 +1,0 @@
-declare module 'xss-clean'

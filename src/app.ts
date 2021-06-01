@@ -10,8 +10,13 @@ import { IS_TEST, APP_PREFIX_PATH } from '@/config/config'
 import httpStatus from 'http-status'
 import ApiError from './utils/ApiError'
 import { errorConverter, errorHandler } from './middlewares/error'
+import passport from 'passport'
+import { jwtStrategy } from '@/utils/passport'
 
 const app = express()
+
+app.use(passport.initialize())
+passport.use(jwtStrategy)
 
 if (!IS_TEST) {
   app.use(morganSuccessHandler)

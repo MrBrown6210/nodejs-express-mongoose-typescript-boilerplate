@@ -3,10 +3,11 @@ import { Store } from '@/models/store.model'
 import ApiError from '@/utils/ApiError'
 import express from 'express'
 import httpStatus from 'http-status'
+import passport from 'passport'
 
 const router = express.Router()
 
-router.get('/', async (req, res, next) => {
+router.get('/', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
   const store = await Store.find()
   res.json(store)
 })

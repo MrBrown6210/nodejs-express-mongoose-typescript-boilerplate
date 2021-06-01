@@ -4,6 +4,7 @@ import { User } from '@/models/user.model'
 import ApiError from '@/utils/ApiError'
 import express from 'express'
 import httpStatus from 'http-status'
+import passport from 'passport'
 
 const router = express.Router()
 
@@ -30,8 +31,8 @@ router.post('/register', async (req, res, next) => {
   }
 })
 
-router.get('/me', async (req, res, next) => {
-  res.send('wow')
+router.get('/me', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
+  res.send(req.user)
 })
 
 export default router
