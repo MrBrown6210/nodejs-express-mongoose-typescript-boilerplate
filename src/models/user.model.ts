@@ -1,7 +1,7 @@
 import { Schema, Document, model } from 'mongoose'
 import crypto from 'crypto'
 import jwt from 'jsonwebtoken'
-import { JWT_SECRET } from '@/config/config'
+import { JWT_EXPIRE, JWT_SECRET } from '@/config/config'
 import uniqueValidator from 'mongoose-unique-validator'
 import privateValidator from 'mongoose-private'
 
@@ -86,7 +86,7 @@ schema.methods.generateJWT = function (): string {
     },
     JWT_SECRET,
     {
-      expiresIn: '1y',
+      expiresIn: JWT_EXPIRE,
     },
   )
 }

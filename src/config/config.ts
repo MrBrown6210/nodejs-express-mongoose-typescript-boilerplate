@@ -4,6 +4,7 @@ export const IS_TEST = ENVIRONMENT === 'test'
 export const APP_PORT = Number(process.env.APP_PORT) || 9000
 export const APP_PREFIX_PATH = process.env.APP_PREFIX_PATH || '/'
 export const JWT_SECRET = process.env.JWT_SECRET || 'somerandomkeyherena'
+export const JWT_EXPIRE = process.env.JWT_EXPIRE || '1y'
 export const DB = {
   USER: process.env.DB_USER || 'root',
   PASSWORD: process.env.DB_USER_PWD || 'secret',
