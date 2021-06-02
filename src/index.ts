@@ -3,7 +3,7 @@ import app from './app'
 import { APP_PORT, DB, DB_URI, IS_TEST } from '@/config/config'
 import logger from './config/logger'
 
-let dbURI:string
+let dbURI: string
 if (DB.HOST && DB.NAME && DB.PASSWORD && DB.USER) {
   dbURI = `mongodb://${DB.USER}:${encodeURIComponent(DB.PASSWORD)}@${DB.HOST}:${DB.PORT}/${DB.NAME}`
 } else {
