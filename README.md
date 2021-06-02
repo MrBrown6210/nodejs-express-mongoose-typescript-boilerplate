@@ -1,9 +1,13 @@
 <h1 align="center">Express Typescript Mongoose Boilerplate</h1>
 
 <p align="center">
+  <a href="https://travis-ci.com/github/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate">
+    <img src="https://travis-ci.com/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate.svg?branch=main" alt="travis" />
+  </a>
   <a href="http://makeapullrequest.com">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PR" />
-  </a><br>
+  </a>
+  <br>
   A boilerplate/starter project for quickly building RESTful APIs using Node.js, Express, and Mongoose.
 </p>
 The app comes with many built-in features, such as authentication using JWT, request validation, unit and integration tests, etc.
