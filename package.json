@@ -15,7 +15,9 @@
     "test:e2e:watch": "export APP_ENV=test; jest -c jest.integration.config.js --watchAll",
     "test:e2e:coverage": "export APP_ENV=test; jest -c jest.integration.config.js --coverage",
     "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prettier": "prettier --check **/*.ts",
+    "prettier:fix": "prettier --write **/*.ts"
   },
   "keywords": [
     "nodejs",
