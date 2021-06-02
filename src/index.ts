@@ -3,7 +3,12 @@ import app from './app'
 import { APP_PORT, DB, DB_URI } from '@/config/config'
 import logger from './config/logger'
 
-const dbURI = DB_URI || `mongodb://${DB.USER}:${encodeURIComponent(DB.PASSWORD)}@${DB.HOST}:${DB.PORT}/${DB.NAME}`
+let dbURI:string
+if (DB.HOST && DB.NAME && DB.PASSWORD && DB.USER) {
+  dbURI = `mongodb://${DB.USER}:${encodeURIComponent(DB.PASSWORD)}@${DB.HOST}:${DB.PORT}/${DB.NAME}`
+} else {
+  dbURI = DB_URI
+}
 
 const options = {
   useNewUrlParser: true,

@@ -6,10 +6,10 @@ export const APP_PREFIX_PATH = process.env.APP_PREFIX_PATH || '/'
 export const JWT_SECRET = process.env.JWT_SECRET || 'somerandomkeyherena'
 export const JWT_EXPIRE = process.env.JWT_EXPIRE || '1y'
 export const DB = {
-  USER: process.env.DB_USER || 'root',
-  PASSWORD: process.env.DB_USER_PWD || 'secret',
-  HOST: process.env.DB_HOST || 'localhost',
-  NAME: process.env.DB_NAME || 'conduit',
-  PORT: Number(process.env.DB_PORT) || 27017,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_USER_PWD,
+  HOST: process.env.DB_HOST,
+  NAME: process.env.DB_NAME,
+  PORT: Number(process.env.DB_PORT) || 27017
 }
-export const DB_URI = process.env.DB_URI || `mongodb://localhost:27017/Mocks${IS_TEST ? '-test' : ''}`
+export const DB_URI = `${process.env.DB_URI}${IS_TEST ? '-test': ''}` || `mongodb://localhost:27017/Mocks${IS_TEST ? '-test' : ''}`
