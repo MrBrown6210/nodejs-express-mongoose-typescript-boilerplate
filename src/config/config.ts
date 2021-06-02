@@ -12,4 +12,4 @@ export const DB = {
   NAME: process.env.DB_NAME,
   PORT: Number(process.env.DB_PORT) || 27017
 }
-export const DB_URI = `${process.env.DB_URI}${IS_TEST ? '-test': ''}` || `mongodb://localhost:27017/Mocks${IS_TEST ? '-test' : ''}`
+export const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/Mocks'
