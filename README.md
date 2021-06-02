@@ -4,6 +4,9 @@
   <a href="https://travis-ci.com/github/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate">
     <img src="https://travis-ci.com/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate.svg?branch=main" alt="travis" />
   </a>
+  <a href='https://coveralls.io/github/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate?branch=main'>
+    <img src='https://coveralls.io/repos/github/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate/badge.svg?branch=main' alt='Coverage Status' />
+  </a>
   <a href="https://www.codacy.com/gh/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MrBrown6210/nodejs-express-mongoose-typescript-boilerplate&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/2fa9351c9741489ebf545d5407d9b7fd"/>
   </a>
   <a href="http://makeapullrequest.com">
