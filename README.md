@@ -13,6 +13,9 @@
 The app comes with many built-in features, such as authentication using JWT, request validation, unit and integration tests, etc.
 
 ## Quick Start
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9e71634d93f04ccbb63f0123a17582b4)](https://app.codacy.com/gh/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate?utm_source=github.com&utm_medium=referral&utm_content=MrBrown6210/nodejs-express-mongoose-typescript-boilerplate&utm_campaign=Badge_Grade_Settings)
+
 Clone project to create your project, simply run:
 ```bash
 git clone https://github.com/MrBrown6210/nodejs-express-mongoose-typescript-boilerplate.git <project-name>
