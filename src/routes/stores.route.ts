@@ -8,7 +8,7 @@ import { authenticate } from 'passport'
 const router = express.Router()
 
 router.get('/', authenticate(['jwt', 'anonymous'], { session: false }), async (req, res, next) => {
-  logger.debug('%o', req.user)
+  // logger.debug('%o', req.user)
   const store = await Store.find()
   res.json(store)
 })
