@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['build'],
+  // testPathIgnorePatterns: ['build'],
   modulePathIgnorePatterns: ['<rootDir>/build'],
   testRegex: '/integration/',
   testEnvironmentOptions: {
