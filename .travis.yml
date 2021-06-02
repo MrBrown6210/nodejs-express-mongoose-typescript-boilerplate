@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - '16'
+services:
+  - mongodb
+cache: yarn
+branches:
+  only:
+    - main
+env:
+  global:
+    - PORT=9000
+    - MONGODB_URL=mongodb://localhost:27017/node-boilerplate
+    - JWT_SECRET=thisisasamplesecret
+    - JWT_ACCESS_EXPIRATION_MINUTES=30
+script:
+  - yarn lint
+  - yarn test
+  - yarn test:e2e
+after_success: yarn coverage
