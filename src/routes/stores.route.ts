@@ -3,11 +3,12 @@ import { Store } from '@/models/store.model'
 import ApiError from '@/utils/ApiError'
 import express from 'express'
 import httpStatus from 'http-status'
-import passport from 'passport'
+import { authenticate } from 'passport'
 
 const router = express.Router()
 
-router.get('/', async (req, res, next) => {
+router.get('/', authenticate(['jwt', 'anonymous'], { session: false }), async (req, res, next) => {
+  logger.debug('%o', req.user)
   const store = await Store.find()
   res.json(store)
 })
@@ -22,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', authenticate(['jwt'], { session: false }), async (req, res, next) => {
   try {
     const store = new Store(req.body.store)
     await store.save()
@@ -32,7 +33,7 @@ router.post('/', async (req, res, next) => {
   }
 })
 
-router.patch('/:id', async (req, res, next) => {
+router.patch('/:id', authenticate(['jwt'], { session: false }), async (req, res, next) => {
   try {
     const store = await Store.findOne({ _id: req.params.id })
     if (!store) throw new ApiError(httpStatus.NOT_FOUND, 'Store not found')
@@ -53,7 +54,7 @@ router.patch('/:id', async (req, res, next) => {
   }
 })
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', authenticate(['jwt'], { session: false }), async (req, res, next) => {
   try {
     const store = await Store.findOne({ _id: req.params.id })
     if (!store) throw new ApiError(httpStatus.NOT_FOUND, 'Store not found')
