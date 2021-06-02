@@ -10,6 +10,6 @@ export const DB = {
   PASSWORD: process.env.DB_USER_PWD,
   HOST: process.env.DB_HOST,
   NAME: process.env.DB_NAME,
-  PORT: Number(process.env.DB_PORT) || 27017
+  PORT: Number(process.env.DB_PORT) || 27017,
 }
 export const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/Mocks'
