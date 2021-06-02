@@ -10,7 +10,8 @@
     "outDir": "build",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@@/*": ["./*"]
     },
     "module": "commonjs"
   },
