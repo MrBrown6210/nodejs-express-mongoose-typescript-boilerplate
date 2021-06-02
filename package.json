@@ -73,8 +73,6 @@
     "passport": "^0.4.1",
     "passport-anonymous": "^1.0.1",
     "passport-jwt": "^4.0.0",
-    "swagger-jsdoc": "^6.0.0",
-    "swagger-ui-express": "^4.1.6",
     "winston": "^3.3.3",
     "xss-clean": "^0.1.1"
   }
