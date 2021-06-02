@@ -13,7 +13,8 @@
       "@/*": ["./src/*"],
       "@@/*": ["./*"]
     },
-    "module": "commonjs"
+    "module": "commonjs",
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "exclude": ["build", "node_modules"]
