@@ -27,10 +27,6 @@ router.post('/login', async (req, res, next) => {
     res.json(user.toAuthJSON())
   } catch (e) {
     next(e)
-
-
-
-
   }
 })
 
