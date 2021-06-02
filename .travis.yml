@@ -13,7 +13,6 @@ env:
     - DB_URI=mongodb://localhost:27017/Mocks
     - JWT_SECRET=somerandomkeyherena
 script:
-  - yarn lint
   - yarn test
   - yarn test:e2e
-after_success: yarn test:coverage
+after_success: yarn coverage:coveralls
