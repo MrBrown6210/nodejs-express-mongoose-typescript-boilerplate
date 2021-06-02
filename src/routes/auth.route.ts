@@ -19,10 +19,19 @@ import passport from 'passport'
 const router = express.Router()
 
 router.post('/login', async (req, res, next) => {
-  const { email, password } = req.body
-  const user = await User.findOne({ email })
-  if (!user || !user.validPassword(password)) return res.sendStatus(httpStatus.UNPROCESSABLE_ENTITY)
-  res.json(user.toAuthJSON())
+  try {
+    const { email, password } = req.body
+    const user = await User.findOne({ email })
+    if (!user || !user.validPassword(password))
+      throw new ApiError(httpStatus.UNPROCESSABLE_ENTITY, 'Invalid email or password')
+    res.json(user.toAuthJSON())
+  } catch (e) {
+    next(e)
+
+
+
+
+  }
 })
 
 router.post('/register', async (req, res, next) => {
