@@ -49,10 +49,16 @@ cp .env.example .env
 
 ## Commands
 
-Running locally:
+Running locally (require to setup environment):
 
 ```bash
 yarn dev
+```
+
+Running with docker-compose
+
+```bash
+docker compose up
 ```
 
 building:
@@ -61,7 +67,7 @@ building:
 yarn build
 ```
 
-Running production (build before use):
+Running production (require building step):
 
 ```bash
 yarn start
