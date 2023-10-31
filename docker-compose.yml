@@ -13,6 +13,8 @@ services:
   mongo-express:
     image: mongo-express
     restart: always
+    depends_on:
+      - mongo
     ports:
       - 8081:8081
     environment:
@@ -27,7 +29,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - ./src:/app/src
+      - ./:/app/
     ports:
       - '9000:9000'
     depends_on:

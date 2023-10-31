@@ -7,6 +7,8 @@
     "dev": "npm run nodemon",
     "start": "export APP_ENV=production; node -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config build/index.js",
     "build": "tsc",
+    "predev": "npm run swagger",
+    "prebuild": "npm run swagger",
     "nodemon": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' -r ts-node/register/transpile-only -r tsconfig-paths/register -r dotenv/config --exec 'ts-node --files' src/index.ts",
     "test": "export APP_ENV=test; jest",
     "test:watch": "export APP_ENV=test; jest --watchAll",
@@ -15,11 +17,13 @@
     "test:e2e": "export APP_ENV=test; jest -c jest.integration.config.js",
     "test:e2e:watch": "export APP_ENV=test; jest -c jest.integration.config.js --watchAll",
     "test:e2e:coverage": "export APP_ENV=test; jest -c jest.integration.config.js --coverage",
+    "migrate-mongo": "set -o allexport; source .env set; +o allexport; migrate-mongo",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "prettier": "prettier --check src/**/*.ts",
     "prettier:fix": "prettier --write src/**/*.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "swagger": "ts-node src/swagger.ts"
   },
   "keywords": [
     "nodejs",
@@ -44,7 +48,7 @@
     "@types/passport-jwt": "^3.0.5",
     "@types/supertest": "^2.0.11",
     "@types/swagger-jsdoc": "^6.0.0",
-    "@types/swagger-ui-express": "^4.1.2",
+    "@types/swagger-ui-express": "^4.1.5",
     "@typescript-eslint/eslint-plugin": "^4.24.0",
     "@typescript-eslint/parser": "^4.24.0",
     "coveralls": "^3.1.0",
@@ -62,7 +66,7 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
-    "concurrently": "^6.1.0",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
@@ -78,6 +82,9 @@
     "passport": "^0.4.1",
     "passport-anonymous": "^1.0.1",
     "passport-jwt": "^4.0.0",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.0",
+    "tsoa": "^5.1.1",
     "winston": "^3.3.3",
     "xss-clean": "^0.1.1"
   }
