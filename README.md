@@ -49,7 +49,7 @@ cp .env.example .env
 
 ## Commands
 
-Running locally (require to setup environment):
+Running locally (require to setup database):
 
 ```bash
 yarn dev
