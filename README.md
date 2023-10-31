@@ -52,6 +52,7 @@ docker compose up
 - **Git hooks**: with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged)
 - **Linting**: with [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) (fixing)
 - **Editor config**: consistent editor configuration using [EditorConfig](https://editorconfig.org/)
+- **API Documentation**: auto-generate by [Swagger](https://swagger.io/)
 
 ## Commands
 
@@ -108,7 +109,7 @@ yarn test:e2e:watch
 
 The environment variables can be found and modified in the `.env` file. They come with these default values:
 
-````bash
+```bash
 # Port number
 APP_PORT=9000
 
@@ -125,9 +126,12 @@ JWT_EXPIRE=1y
 # Database config
 DB_SERVER=mongodb://root:example@localhost:27017
 DB_NAME=core
+```
 
 ## Project Structure
+
 This project don't have **controllers** and **services** folders because we want to minimalized. If you want them, you can create it
+
 ```bash
 src\
  |--config\         # Environment variables and configuration related things
@@ -137,7 +141,7 @@ src\
  |--utils\          # Utility classes and functions
  |--app.js          # Express app
  |--index.js        # App entry point
-````
+```
 
 ## Error handling
 
@@ -216,6 +220,10 @@ To modify the ESLint configuration, update the `.eslintrc.json` file. To modify 
 To prevent a certain file or directory from being linted, add it to `.eslintignore` and `.prettierignore`.
 
 To maintain a consistent coding style across different IDEs, the project contains `.editorconfig`
+
+## API Documentation
+
+When running the server, you can visit at `/api-docs` (only dev environment)
 
 ## Contributing
 

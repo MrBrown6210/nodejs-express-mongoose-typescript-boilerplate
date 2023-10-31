@@ -4,3 +4,4 @@ build/
 **/.DS_Store
 yarn-error.log
 coverage/
+src/swagger_output.json
