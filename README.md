@@ -26,10 +26,16 @@ git clone https://github.com/MrBrown6210/nodejs-express-mongoose-typescript-boil
 ```
 
 Set the environment variables:
-(You can see all enviroment key at **src/config/config**)
+(You can see all environment keys at **src/config/config**)
 
 ```bash
 cp .env.example .env
+```
+
+Start services
+
+```bash
+docker compose up
 ```
 
 ## Feature
@@ -59,6 +65,12 @@ Running with docker-compose
 
 ```bash
 docker compose up
+```
+
+Down the docker-compose services
+
+```bash
+docker compose down
 ```
 
 building:
