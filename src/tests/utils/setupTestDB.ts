@@ -1,8 +1,12 @@
 import mongoose from 'mongoose'
-import { DB_URI } from '../../config/config'
+import { DB_SERVER, DB_NAME } from '../../config/config'
+import logger from '@/config/logger'
+
+const DB_URI = `${DB_SERVER}${DB_NAME}-test`
 
 const setupTestDB = () => {
   beforeAll(async () => {
+    logger.debug(`Connecting to ${DB_URI}`)
     await mongoose.connect(DB_URI, {
       useNewUrlParser: true,
       useCreateIndex: true,
