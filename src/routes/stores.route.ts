@@ -23,7 +23,7 @@ router.get('/:id', async (req, res, next) => {
   }
 })
 
-router.post('/', authenticate(['jwt'], { session: false }), async (req, res, next) => {
+router.post('/', authenticate(['jwt', 'anonymous'], { session: false }), async (req, res, next) => {
   try {
     const store = new Store(req.body.store)
     await store.save()

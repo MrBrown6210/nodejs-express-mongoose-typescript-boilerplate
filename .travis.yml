@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '16'
+  - "16"
 services:
   - mongodb
 cache: yarn
@@ -10,7 +10,8 @@ branches:
 env:
   global:
     - APP_PORT=9000
-    - DB_URI=mongodb://localhost:27017/Mocks
+    - DB_SERVER=mongodb://localhost:27017/
+    - DB_NAME=core
     - JWT_SECRET=somerandomkeyherena
 script:
   - yarn test

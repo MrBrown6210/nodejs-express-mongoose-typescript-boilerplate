@@ -1,18 +1,9 @@
 import mongoose from 'mongoose'
 import app from './app'
-import { APP_PORT, DB, DB_URI, IS_TEST } from '@/config/config'
+import { APP_PORT, DB_NAME, DB_SERVER } from '@/config/config'
 import logger from './config/logger'
 
-let dbURI: string
-if (DB.HOST && DB.NAME && DB.PASSWORD && DB.USER) {
-  dbURI = `mongodb://${DB.USER}:${encodeURIComponent(DB.PASSWORD)}@${DB.HOST}:${DB.PORT}/${DB.NAME}`
-} else {
-  dbURI = DB_URI
-}
-
-if (IS_TEST) {
-  dbURI += '-test'
-}
+let dbURI: string = `${DB_SERVER}${DB_NAME}`
 
 const options = {
   useNewUrlParser: true,
@@ -25,6 +16,7 @@ const options = {
   bufferMaxEntries: 0,
   connectTimeoutMS: 10000, // Give up initial connection after 10 seconds
   socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
+  authSource: 'admin',
 }
 
 logger.debug(dbURI)
